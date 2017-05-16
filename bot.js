@@ -8,6 +8,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       coolGuyRegex = /^\/cool guy$/;
   var navySealRegex = /^\/navy seal$/
+  var rollRegex = /^\/roll$/
 
   
   
@@ -24,6 +25,13 @@ function respond() {
     var message = cool();
     postMessage(message);
   } 
+  else if(request.text && rollRegex.test(request.text)){
+    //roll a D20
+    var d20_num = Math.floor(Math.random() * (20 - 1)) + 1;
+    this.res.writeHead(200);
+    postMessage(message);
+
+  }
 
   //Randomly select a number out of 50
   //If we select 21, say that person is bad at smash
