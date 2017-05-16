@@ -2,6 +2,8 @@
 
 ## Introduction
 
+---This is a fork of the GroupMe Bot repo for the Gamma Mu Kappa group chat---
+
 This project shows the capability of a bot to react to messages sent within a group.
 
 ## Contents
