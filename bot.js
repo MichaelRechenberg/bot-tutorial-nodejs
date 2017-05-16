@@ -45,7 +45,7 @@ function respond() {
 
   -botResponse: the text we want to send to the chat
   */
-function postMessage(botReponse) {
+function postMessage(botResponse) {
   var options, body, botReq;
 
 
