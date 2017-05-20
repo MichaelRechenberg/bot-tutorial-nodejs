@@ -1,14 +1,19 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
+//set via Heroku's Environment Variables
 var botID = process.env.BOT_ID;
 
 function respond() {
   //request contains parsed message from GroupMe
   var request = JSON.parse(this.req.chunks[0]),
       coolGuyRegex = /^\/cool guy$/;
-  var navySealRegex = /^\/navy seal$/
-  var rollRegex = /^\/roll$/
+
+  //issues navy seal copypasta
+  var navySealRegex = /^\/navy seal$/;
+
+  //roll a fair die between 1-999
+  var rollRegex = /^\/roll (\d{1,3})$/;
 
   
   
@@ -26,10 +31,13 @@ function respond() {
     postMessage(message);
   } 
   else if(request.text && rollRegex.test(request.text)){
-    //roll a D20
-    var d20_num = Math.floor(Math.random() * (20 - 1)) + 1;
-    this.res.writeHead(200);
-    postMessage(message);
+
+    var dice_size = parseInt(rollRegex.exec(rollRegex)[1]);
+    if(dice_size > 0){
+      var result = Math.floor(Math.random() * (dice_size - 1)) + 1;
+      this.res.writeHead(200);
+      postMessage(d20_num);
+    }
 
   }
 
