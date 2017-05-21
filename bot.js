@@ -42,7 +42,7 @@ function respond() {
     if(dice_size > 0){
       var result = Math.floor(Math.random() * (dice_size - 1)) + 1;
       this.res.writeHead(200);
-      postMessage(d20_num);
+      postMessage(result.toString());
     }
 
   }
