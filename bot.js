@@ -15,7 +15,11 @@ function respond() {
   //roll a fair die between 1-999
   var rollRegex = /^\/roll (\d{1,3})$/;
 
+  //post a dinosaur
   var dinoRegex = /^\/dino$/;
+
+  //;)
+  var sexyBabeRegex = /^\/sexy babe$/;
 
   
   if(request.text){
@@ -51,6 +55,10 @@ function respond() {
       this.res.writeHead(200)
       postMessage('MUTHAFUCKING TREE STARS BITCH')
       postMessage('http://imgur.com/gallery/dVgfr')
+    }
+    else if(sexyBabeRegex.test(request.text)){
+      this.res.writeHead(200);
+      postMessage('http://imgur.com/gallery/AYN1pj6');
     }
 
   }  
