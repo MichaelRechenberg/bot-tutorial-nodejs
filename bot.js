@@ -21,6 +21,8 @@ function respond() {
   //;)
   var sexyBabeRegex = /^\/sexy babe$/;
 
+  var uncoolGuyRegex = /^\/uncool guy$/;
+
   
   if(request.text){
     //Handle any '/' commands 
@@ -59,6 +61,26 @@ function respond() {
     else if(sexyBabeRegex.test(request.text)){
       this.res.writeHead(200);
       postMessage('http://imgur.com/gallery/AYN1pj6');
+    }
+    else if(uncoolGuyRegex.test(request.text)){
+      this.res.writeHead(200);
+      var names = [
+        "Keith",
+        "Mike",
+        "Harsha",
+        "Conor", 
+        "Jack",
+        "Kevin",
+        "Remi",
+        "Thomas",
+        "Vinn",
+        "Niko", 
+        "Piush",
+        "Zach",
+        "Anthony"
+      ];
+      var randomName = names[Math.floor(Math.random()*names.length)];
+      postMessage("LOL " + randomName + " isn't cool");
     }
 
   }  
