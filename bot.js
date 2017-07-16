@@ -49,6 +49,7 @@ function respond() {
       this.res.writeHead(200);
       var message = cool();
       postMessage(message);
+      postMessage("Request.text == (" + request.text + ")");
     } 
     else if(rollRegex.test(request.text)){
       //extract the dice size from the command
@@ -90,10 +91,10 @@ function respond() {
       postMessage("LOL " + randomName + " isn't cool");
     }
     else if(secretCoolGuyRegex.test(request.text)){
+      postMessage("Request.text == (" + request.text + ")");
       this.res.writeHead(200);
       postMessage("LOL Keith is cool");
     }
-    postMessage("Request.text == (" + request.text + ")");
 
   }  
 
