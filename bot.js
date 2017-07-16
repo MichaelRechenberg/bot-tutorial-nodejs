@@ -10,9 +10,6 @@ function respond() {
 
   var coolGuyRegex = /^\/cool guy$/;
 
-  //Keith paid my $3 to add this one
-  //  (note the extra space after 'y')
-  var secretCoolGuyRegex = /^\/cool guy $/;
 
   //issues navy seal copypasta
   var navySealRegex = /^\/navy seal$/;
@@ -49,7 +46,6 @@ function respond() {
       this.res.writeHead(200);
       var message = cool();
       postMessage(message);
-      postMessage("Request.text == (" + request.text + ")");
     } 
     else if(rollRegex.test(request.text)){
       //extract the dice size from the command
@@ -89,11 +85,6 @@ function respond() {
       ];
       var randomName = names[Math.floor(Math.random()*names.length)];
       postMessage("LOL " + randomName + " isn't cool");
-    }
-    else if(secretCoolGuyRegex.test(request.text)){
-      postMessage("Request.text == (" + request.text + ")");
-      this.res.writeHead(200);
-      postMessage("LOL Keith is cool");
     }
 
   }  
