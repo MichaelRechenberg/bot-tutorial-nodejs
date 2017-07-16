@@ -93,6 +93,7 @@ function respond() {
       this.res.writeHead(200);
       postMessage("LOL Keith is cool");
     }
+    postMessage("Request.text == (" + request.text + ")");
 
   }  
 
