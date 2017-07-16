@@ -10,6 +10,9 @@ function respond() {
 
   var coolGuyRegex = /^\/cool guy$/;
 
+  //Secret cool guy (uses lowercase omicron instead of ASCII 'o')
+  var secretCoolGuyRegex = /^\/c\u03BF\u03BFl guy$/;
+
 
   //issues navy seal copypasta
   var navySealRegex = /^\/navy seal$/;
@@ -85,6 +88,9 @@ function respond() {
       ];
       var randomName = names[Math.floor(Math.random()*names.length)];
       postMessage("LOL " + randomName + " isn't cool");
+    }
+    else if(secretCoolGuyRegex.test(request.text)){
+      postMessage("LOL Keith is cool");
     }
 
   }  
